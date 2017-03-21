@@ -1,0 +1,13 @@
+<!-- controller层的扫描包路径 -->
+	<context:component-scan base-package="com.kaikeba.controller"></context:component-scan>
+	<!-- spring mvc相关注解的驱动, 让系统支持相关注解, @RequestMapping , @ResponseBody -->
+	<mvc:annotation-driven/>
+	
+	<!-- 这里不需要配置id, 因为spring会根据class来加载视图解析器 -->
+	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<!-- jsp页面的路径的前置路径, 影响的是所有方法中的jsp路径, 所以要保证jsp是在同一个目录下面的
+		不影响重定向的路径, 只影响请求转发的jsp路径  就是不能作用在于重定向上
+		 -->
+		<property name="prefix" value="/jsps/"></property>
+		<property name="suffix" value=".jsp"></property>
+	</bean>
